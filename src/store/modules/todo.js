@@ -6,10 +6,16 @@ const state = () => ({
 
 const getters = {
   todoItems: (state) => {
-    return state.items.filter((it) => it.status === "todo");
+    return state.items
+      .filter((it) => it.status === "todo")
+      .slice()
+      .sort((a, b) => b.id - a.id);
   },
   doneItems: (state) => {
-    return state.items.filter((it) => it.status === "done");
+    return state.items
+      .filter((it) => it.status === "done")
+      .slice()
+      .sort((a, b) => b.id - a.id);
   },
 };
 
@@ -27,7 +33,6 @@ const actions = {
     commit("remove", id);
   },
   updateStatus({ commit, state }, { id, status }) {
-    console.log(status);
     const items = JSON.parse(JSON.stringify(state.items));
     const item = items.find((it) => it.id === id);
     if (!item) return;

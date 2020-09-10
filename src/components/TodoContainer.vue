@@ -1,17 +1,14 @@
 <template>
   <div>
     <div>
-      <label>
-        <input type="text" v-model="content" />
-      </label>
-      <button
-        type="button"
-        class="ml5"
-        :disabled="!isEnabledAddButton"
-        @click="onClickAddButton"
-      >
-        追加
-      </button>
+      <form @submit.prevent="onSubmit">
+        <label>
+          <input type="text" class="text-input" v-model="content" />
+        </label>
+        <button type="submit" class="submit ml5" :disabled="!isEnabledAddButton">
+          追加
+        </button>
+      </form>
     </div>
     <TodoList />
   </div>
@@ -39,9 +36,11 @@ export default {
     ...mapActions("todo", {
       appendTodoItem: "appendItem",
     }),
-    onClickAddButton() {
-      this.appendTodoItem(this.content);
-      this.content = '';
+    onSubmit() {
+      if (this.content.length > 0) {
+        this.appendTodoItem(this.content);
+        this.content = "";
+      }
     },
   },
 };
@@ -50,5 +49,9 @@ export default {
 <style scoped>
 .ml5 {
   margin-left: 8px;
+}
+.text-input {
+  width: 60%;
+  padding: 10px;
 }
 </style>

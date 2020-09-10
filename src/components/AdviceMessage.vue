@@ -17,15 +17,19 @@ export default {
   },
   methods: {
     async roadAdvice() {
-      this.message = await AdviceService.getRandomAdvice().catch(
-        (reason) => {
-          console.warn(reason);
-          return '読み込みエラー'
-        }
-      );
+      this.message = await AdviceService.getRandomAdvice().catch(() => {
+        return "読み込みエラー";
+      });
     },
   },
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+p {
+  background-color: #528b58;
+  color: snow;
+  border-radius: 10px;
+  padding: 10px;
+}
+</style>

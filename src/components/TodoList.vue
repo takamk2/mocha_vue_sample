@@ -41,4 +41,8 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+  ul {
+    padding: 0;
+    position: relative;  }
+</style>
