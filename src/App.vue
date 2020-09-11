@@ -6,16 +6,16 @@
 </template>
 
 <script>
-import AdviceMessage from "./components/AdviceMessage";
-import TodoContainer from "./components/TodoContainer.vue";
+import AdviceMessage from './components/AdviceMessage'
+import TodoContainer from './components/TodoContainer.vue'
 
 export default {
-  name: "App",
+  name: 'App',
   components: {
     TodoContainer,
     AdviceMessage,
   },
-};
+}
 </script>
 
 <style>

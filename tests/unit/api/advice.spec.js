@@ -1,28 +1,28 @@
-import assert from "assert";
-import sinon from "sinon";
-import axios from "axios";
+import assert from 'assert'
+import sinon from 'sinon'
+import axios from 'axios'
 
-import advice from "../../../src/api/advice";
+import advice from '../../../src/api/advice'
 
-describe("api/advice.js", () => {
+describe('api/advice.js', () => {
   beforeEach(() => {
-    sinon.restore();
-  });
+    sinon.restore()
+  })
 
-  describe("ランダムなアドバイスを取得: getRandomAdvice()", () => {
-    let axiosGetStub;
+  describe('ランダムなアドバイスを取得: getRandomAdvice()', () => {
+    let axiosGetStub
     beforeEach(() => {
       // Given
-      axiosGetStub = sinon.stub(axios, "get").resolves("dummy response");
+      axiosGetStub = sinon.stub(axios, 'get').resolves('dummy response')
 
       // When
-      advice.getRandomAdvice();
-    });
+      advice.getRandomAdvice()
+    })
 
-    it("api.adviceslip.comへのリクエストが実行される", () => {
+    it('api.adviceslip.comへのリクエストが実行される', () => {
       // Then
-      const expected = "https://api.adviceslip.com/advice";
-      assert.ok(axiosGetStub.withArgs(expected).calledOnce);
-    });
-  });
-});
+      const expected = 'https://api.adviceslip.com/advice'
+      assert.ok(axiosGetStub.withArgs(expected).calledOnce)
+    })
+  })
+})

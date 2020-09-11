@@ -1,4 +1,4 @@
-import advice from "../api/advice";
+import advice from '../api/advice'
 
 export default class {
   /**
@@ -7,8 +7,6 @@ export default class {
    * @returns {Promise}
    */
   static async getRandomAdvice() {
-    return advice
-      .getRandomAdvice()
-      .then((res) => res["data"]["slip"]["advice"]);
+    return advice.getRandomAdvice().then((res) => res['data']['slip']['advice'])
   }
 }

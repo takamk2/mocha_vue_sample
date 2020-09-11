@@ -11,38 +11,39 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
-import TodoListItem from "./TodoListItem";
+import { mapGetters, mapActions } from 'vuex'
+import TodoListItem from './TodoListItem'
 
 export default {
-  name: "TodoList",
+  name: 'TodoList',
   components: { TodoListItem },
   computed: {
-    ...mapGetters("todo", {
-      todoItems: "todoItems",
-      doneItems: "doneItems",
+    ...mapGetters('todo', {
+      todoItems: 'todoItems',
+      doneItems: 'doneItems',
     }),
     items() {
-      return this.todoItems.concat(this.doneItems);
+      return this.todoItems.concat(this.doneItems)
     },
   },
   methods: {
-    ...mapActions("todo", {
-      removeItem: "removeItem",
-      updateStatus: "updateStatus",
+    ...mapActions('todo', {
+      removeItem: 'removeItem',
+      updateStatus: 'updateStatus',
     }),
     onClickDoneButton(id) {
-      this.updateStatus({ id, status: "done" });
+      this.updateStatus({ id, status: 'done' })
     },
     onClickDeleteButton(id) {
-      this.removeItem(id);
+      this.removeItem(id)
     },
   },
-};
+}
 </script>
 
 <style scoped>
-  ul {
-    padding: 0;
-    position: relative;  }
+ul {
+  padding: 0;
+  position: relative;
+}
 </style>

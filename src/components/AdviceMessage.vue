@@ -3,26 +3,26 @@
 </template>
 
 <script>
-import AdviceService from "../services/AdviceService";
+import AdviceService from '../services/AdviceService'
 
 export default {
-  name: "AdviceMessage",
+  name: 'AdviceMessage',
   data() {
     return {
-      message: "読み込み中",
-    };
+      message: '読み込み中',
+    }
   },
   mounted() {
-    this.roadAdvice();
+    this.roadAdvice()
   },
   methods: {
     async roadAdvice() {
       this.message = await AdviceService.getRandomAdvice().catch(() => {
-        return "読み込みエラー";
-      });
+        return '読み込みエラー'
+      })
     },
   },
-};
+}
 </script>
 
 <style scoped>

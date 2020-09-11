@@ -8,5 +8,5 @@ export default {
    */
   getRandomAdvice() {
     return axios.get('https://api.adviceslip.com/advice')
-  }
+  },
 }

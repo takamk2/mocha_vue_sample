@@ -1,18 +1,18 @@
-import assert from "assert";
-import sinon from "sinon";
-import { shallowMount, createLocalVue } from "@vue/test-utils";
+import assert from 'assert'
+import sinon from 'sinon'
+import { shallowMount, createLocalVue } from '@vue/test-utils'
 
-import TodoContainer from "../../../src/components/TodoContainer";
+import TodoContainer from '../../../src/components/TodoContainer'
 
-const localVue = createLocalVue();
+const localVue = createLocalVue()
 
-describe("components/TodoContainer.vue", () => {
+describe('components/TodoContainer.vue', () => {
   beforeEach(() => {
-    sinon.restore();
-  });
+    sinon.restore()
+  })
 
-  describe("テキストフォームが空", () => {
-    let wrapper;
+  describe('テキストフォームが空', () => {
+    let wrapper
     beforeEach(() => {
       // When
       wrapper = shallowMount(TodoContainer, {
@@ -20,19 +20,19 @@ describe("components/TodoContainer.vue", () => {
         stubs: {
           TodoList: true,
         },
-      });
-    });
+      })
+    })
 
-    it("追加ボタンが無効になる", () => {
+    it('追加ボタンが無効になる', () => {
       // Then
-      const expected = "disabled";
-      const actual = wrapper.find(".submit").attributes("disabled");
-      assert.strictEqual(actual, expected);
-    });
-  });
+      const expected = 'disabled'
+      const actual = wrapper.find('.submit').attributes('disabled')
+      assert.strictEqual(actual, expected)
+    })
+  })
 
-  describe("テキストフォームに文字列を入力", () => {
-    let wrapper;
+  describe('テキストフォームに文字列を入力', () => {
+    let wrapper
     beforeEach(() => {
       // When
       wrapper = shallowMount(TodoContainer, {
@@ -40,27 +40,27 @@ describe("components/TodoContainer.vue", () => {
         stubs: {
           TodoList: true,
         },
-      });
-      wrapper.find(".text-input").setValue('dummy')
-    });
+      })
+      wrapper.find('.text-input').setValue('dummy')
+    })
 
     beforeEach(() => {
-      assert.ok(true);
-    });
+      assert.ok(true)
+    })
 
-    it("追加ボタンが有効になる", () => {
+    it('追加ボタンが有効になる', () => {
       // Then
-      const expected = "disabled";
-      const actual = wrapper.find(".submit").attributes("disabled");
-      assert.strictEqual(actual, expected);
-    });
-  });
+      const expected = 'disabled'
+      const actual = wrapper.find('.submit').attributes('disabled')
+      assert.strictEqual(actual, expected)
+    })
+  })
 
-  describe("テキストフォームに文字列を入力して追加ボタンを押す", () => {
+  describe('テキストフォームに文字列を入力して追加ボタンを押す', () => {
     beforeEach(() => {
-      assert.ok(true);
-    });
+      assert.ok(true)
+    })
 
-    it("todoモジュールのappendTodoItemが呼び出される", () => {});
-  });
-});
+    it('todoモジュールのappendTodoItemが呼び出される', () => {})
+  })
+})
